@@ -1,0 +1,14 @@
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'artistprofile/style.css' %}">
+
+<h1>Artist Index</h1>
+{% if artist_profile_list %}
+    <ul>
+    {% for artist_profile in artist_profile_list %}
+        <li><a href="{% url 'artistprofile:detail' artist_profile.id %}">{{ artist_profile.full_name }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No artists are available.</p>
+{% endif %}
